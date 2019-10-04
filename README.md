@@ -46,6 +46,36 @@ Our app takes a user's location input. This information is used to pull weather 
 * Build the front end
 * Map temperature to ingredients categories
 
+### Pseudo Code
+
+``` 
+
+<!-- P R O J E C T _ O N E _ P S E U D O C O D E  -->
+<!-- Step One: Setting Up Variables  -->
+<!-- Set Arrays for different ingredients based on weather -->
+<!-- I.E: cold_weather_ingred, hot_weather_ingred -->
+<!-- Set variables for Latitude, Longitude, Weather (Convert from Kelvin to Farenheit), etc-->
+<!-- Step Two: Setting Up Functions -->
+<!-- Ajax Calls for Each API used returning responses (named for each expected type of response) -->
+<!-- Function to convert Kelvin to Farenheit -->
+<!-- Geolocation Function to get Latitude and Longitude -->
+<!-- Listening/ Click Events for 
+            1.User Typed Location 
+
+            2. Button that gets Geolocation-->
+
+<!-- Step Three: JQuery -->
+<!-- Dynamic Loading of HTML -->
+<!-- This will be for "automatic" loading of 
+        
+
+        1. Drink Options
+        2. Weather Forecast
+        3. List of Selected Drinks
+        4. Other information To Be Determined -->
+
+```
+
 ## Link to Assignment
 
 [Project 1](https://gt.bootcampcontent.com/GT-Coding-Boot-Camp/gt-atl-fsf-pt-08-2019-u-c/wikis/Project-01)
