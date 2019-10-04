@@ -22,7 +22,7 @@ Our app takes a user's location input. This information is used to pull weather 
 
 ## Sketch
 
-[Sketch](https://lcole490.github.io/Project_1_Drafts/)
+<img src="/assets/images/preliminar-sketch.png" style="width='300px'">
 
 ## APIs & Other Technologies
 
