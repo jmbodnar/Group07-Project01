@@ -15,9 +15,10 @@ Our app takes a user's location input. This information is used to pull weather 
 
 ### Beyond the Basic
 
-* Store responses to localStorage, allow keeping/deleting
+* Store responses to localStorage (or firebase), allow keeping/deleting
 * Add a button so that people can pull chuck norris facts
 * Use browser geolocation to let user pull location based on current location (lat and lon) with one button click
+* Have drink image link out to a google search "how do i make x"
 
 ## Sketch
 
@@ -39,8 +40,13 @@ Our app takes a user's location input. This information is used to pull weather 
 * Figure out how GeoLocation API works
 * Figure out how to collaboratively use github
 * Make the design responsive
-* Figure out now to use Wing framework
+* Figure out how to use Wing framework
+* Pseudocode key parts of application
+* Divide coding tasks/responsibilities among ourselves
+* Build the front end
+* Map temperature to ingredients categories
 
+## Link to Assignment
 
-[Link to assignment](https://gt.bootcampcontent.com/GT-Coding-Boot-Camp/gt-atl-fsf-pt-08-2019-u-c/wikis/Project-01)
+[Project 1](https://gt.bootcampcontent.com/GT-Coding-Boot-Camp/gt-atl-fsf-pt-08-2019-u-c/wikis/Project-01)
 
