@@ -18,13 +18,14 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <title>Weather to Drink</title>
   </head>
+
   <body>
     <!-- START .CONTAINER: Wings constrains to max-width of 80% -->
     <div class="container">
       <header class="header">
         <h1 class="header__title">
           Page Heading:
-          <span class="header__subtitle">Unstyled Page Subtitle</span>
+          <span class="header__subtitle"></span>
         </h1>
       </header>
       <main>
@@ -32,12 +33,11 @@
           <div class="col-6">
             <h2>Drinks for Your Location</h2>
             <p>
-              With your permission, we'll use your browser's
+              Use your browser's
               <a
                 href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API"
-                >geolocation</a
-              >
-              feature to find seasonal drinks for your location.
+                >GeoLocation API</a
+              >to find seasonal drinks for your location.
             </p>
             <button id="location-button">Get Drinks for My Location</button>
           </div>
@@ -121,6 +121,86 @@
 
               <button type="submit">See Your Seasonal Drinks</button>
             </form>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <h2>Weather</h2>
+            <p>
+              It's currently <span id="current-temp">9000</span>&deg; in
+              <span id="city-name">Atlanta</span>,
+              <span id="state-abbreviation">GA</span>
+            </p>
+          </div>
+        </div>
+
+        <h2>Seasonal Drinks</h2>
+        <div class="drinks">
+          <div class="drink-card">
+            <div class="drink-card__header"><h3>Drink Name</h3></div>
+            <div class="drink-card__body">
+              <a href="" class="drink-card__link">
+                <img
+                  src="assets/images/drink01.jpg"
+                  alt="drink"
+                  class="drink-card__image"
+                />
+              </a>
+              <div class="drink-card__details">Some info or something</div>
+            </div>
+          </div>
+          <div class="drink-card">
+            <div class="drink-card__header"><h3>Drink Name</h3></div>
+            <div class="drink-card__body">
+              <a href="" class="drink-card__link">
+                <img
+                  src="assets/images/drink01.jpg"
+                  alt="drink"
+                  class="drink-card__image"
+                />
+              </a>
+              <div class="drink-card__details">Some info or something</div>
+            </div>
+          </div>
+          <div class="drink-card">
+            <div class="drink-card__header"><h3>Drink Name</h3></div>
+            <div class="drink-card__body">
+              <a href="" class="drink-card__link">
+                <img
+                  src="assets/images/drink01.jpg"
+                  alt="drink"
+                  class="drink-card__image"
+                />
+              </a>
+              <div class="drink-card__details">Some info or something</div>
+            </div>
+          </div>
+          <div class="drink-card">
+            <div class="drink-card__header"><h3>Drink Name</h3></div>
+            <div class="drink-card__body">
+              <a href="" class="drink-card__link">
+                <img
+                  src="assets/images/drink01.jpg"
+                  alt="drink"
+                  class="drink-card__image"
+                />
+              </a>
+              <div class="drink-card__details">Some info or something</div>
+            </div>
+          </div>
+          <div class="drink-card">
+            <div class="drink-card__header"><h3>Drink Name</h3></div>
+            <div class="drink-card__body">
+              <a href="" class="drink-card__link">
+                <img
+                  src="assets/images/drink01.jpg"
+                  alt="drink"
+                  class="drink-card__image"
+                />
+              </a>
+              <div class="drink-card__details">Some info or something</div>
+            </div>
           </div>
         </div>
       </main>

@@ -10,3 +10,14 @@ button:hover {
   display: block;
   width: 100%;
 }
+
+
+.drinks {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+
+.drink {
+  flex: 0 0 300px;
+}
