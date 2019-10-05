@@ -26,3 +26,7 @@ if ("geolocation" in navigator) {
 
                       $('body').append(`<h1>${latitude}</h1><h2>${longitude}</h2>`)
                   })
+ 
+                  
+
+                 
