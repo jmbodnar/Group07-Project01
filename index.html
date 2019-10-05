@@ -25,19 +25,57 @@
     <main class="main">
       <h2>Main Content</h2>
       <section>
-        <p>look I'm a p tag! Look at me shine !!!!</p>
+        <p>look I'm a p tag! I am soooo excited about this project !!!!</p>
       </section>
+      <div class="temp"></div>
     </main>
     <footer class="footer"><p>I am the footer</p></footer>
+
 
     <!-- Scripts -->
     <!-- jQuery -->
     <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+   <!-- src="https://code.jquery.com/jquery-3.4.1.min.js" -->
+      <!-- integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <!-- Our Main Scripts -->
     <script src="assets/js/main.js" defer></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // This is our API key. Add your own API key between the ""
+    var APIKey = "a84a28bd3ceb9c6a42d9c9f3b13c5fad";
+    // var APIKey = "af64df3fe4272a2257c01c9b701f1a9b"
+
+
+    // Here we are building the URL we need to query the database
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=Loganville,Georgia&appid=" + APIKey;
+    
+    // We then created an AJAX call
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+
+
+      // Create CODE HERE to Log the queryURL
+      console.log(queryURL)
+      // Create CODE HERE to log the resulting object
+      console.log(response)
+
+      // Create CODE HERE to transfer content to HTML
+      $(".city").text(response.name)
+      $(".wind").text(response.wind.speed)
+      var temp = Math.round((response.main.temp - 273.15) * 1.80 + 32)
+      $(".temp").text(temp)
+      $(".humidity").text(response.main.humidity)
+    });
+</script>
   </body>
 </html>
