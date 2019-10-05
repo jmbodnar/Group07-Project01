@@ -28,6 +28,8 @@
         <p>look I'm a p tag! I am soooo excited about this project !!!!</p>
       </section>
       <div class="temp"></div>
+      <div id="lat"></div>
+      <div id="long"></div>
     </main>
     <footer class="footer"><p>I am the footer</p></footer>
 
@@ -71,10 +73,10 @@
 
       // Create CODE HERE to transfer content to HTML
       $(".city").text(response.name)
-      $(".wind").text(response.wind.speed)
+      // $(".wind").text(response.wind.speed)
       var temp = Math.round((response.main.temp - 273.15) * 1.80 + 32)
       $(".temp").text(temp)
-      $(".humidity").text(response.main.humidity)
+      // $(".humidity").text(response.main.humidity)
     });
 </script>
   </body>

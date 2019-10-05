@@ -26,6 +26,28 @@ if ("geolocation" in navigator) {
 
                       $('body').append(`<h1>${latitude}</h1><h2>${longitude}</h2>`)
                   })
+
+
+                //   added w3 schools code 
+                  var x = document.getElementById("lat");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    // x.innerHTML = "Geolocation is not supported by this browser.";
+    console.log("hello");
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+  console.log(position.coords.latitude)
+  console.log(position.coords.longitude);
+
+}
+getLocation();
  
                   
 
