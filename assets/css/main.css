@@ -1,0 +1,12 @@
+button:hover {
+  cursor: pointer;
+}
+
+.header__subtitle {
+  display: block;
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+}

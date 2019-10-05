@@ -19,6 +19,71 @@
     <title>Weather to Drink</title>
   </head>
   <body>
+    <!-- START .CONTAINER: Wings constrains to max-width of 80% -->
+    <div class="container">
+      <header class="header">
+        <h1 class="header__title">
+          Page Heading:
+          <span class="header__subtitle">Unstyled Page Subtitle</span>
+        </h1>
+      </header>
+      <main>
+        <div class="row">
+          <div class="col-6">
+            <h2>Drinks for Your Location</h2>
+            <p>
+              With your permission, we'll use your browser's
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API"
+                >geolocation</a
+              >
+              feature to find seasonal drinks for your location.
+            </p>
+            <button id="location-button">Get Drinks for My Location</button>
+          </div>
+          <div class="col-6">
+            <h2>Seasonal Drinks by City</h2>
+            <form action="javascript:void(0)" id="location-form">
+              <div class="input-group">
+                <label for="city">City</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder="Cityname"
+                />
+              </div>
+              <div class="input-group">
+                <label for="state">State</label>
+                <input
+                  type="text"
+                  id="state"
+                  name="state"
+                  placeholder="Must be state abbreviation, e.g. AL for 'Alaska"
+                  pattern="[A-Z]{2}"
+                  list="states"
+                />
+                <datalist id="states">
+                  <!-- We can either add all 50 or write a script to add them -->
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                </datalist>
+              </div>
+
+              <button type="submit">See Your Seasonal Drinks</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- END .CONTAINER -->
+
     <!-- Scripts -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -26,6 +91,6 @@
       crossorigin="anonymous"
     ></script>
     <!-- Our Main Scripts -->
-    <script src="assets/js/main.js" defer></script>
+    <!-- <script src="assets/js/main.js" defer></script> -->
   </body>
 </html>

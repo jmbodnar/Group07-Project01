@@ -209,6 +209,7 @@ textarea[type='text'] {
 [class*=' col-'],
 [class^='col-'] {
   margin: 1rem;
+  padding: 1rem;
 }
 .col-1 {
   flex: 1;
