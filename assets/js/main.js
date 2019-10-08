@@ -24,7 +24,7 @@ if ('geolocation' in navigator) {
   // example http://open.mapquestapi.com/geocoding/v1/address?key=KEY&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500
   $.ajax(
     'https://open.mapquestapi.com/geocoding/v1/address?key=hCje36DnsPrbL6oI4rXEVFDlZDB6HxPLhCje36DnsPrbL6oI4rXEVFDlZDB6HxP&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500'
-  ).then(function(data) {
+  ).then(function (data) {
     console.log(data);
   });
 
@@ -44,7 +44,7 @@ if ('geolocation' in navigator) {
 
 $.ajax(
   'https://open.mapquestapi.com/geocoding/v1/address?key=hCje36DnsPrbL6oI4rXEVFDlZDB6HxPL&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500'
-).then(function(data) {
+).then(function (data) {
   console.log('ajax', data.results[0].locations[0].latLng);
   let latLng = data.results[0].locations[0].latLng;
   latitude = latLng.lat;
@@ -85,33 +85,65 @@ getLocation();
 // var coldIngredient = ["cinnamon", "cider", "coffee", "vanilla"];
 // var hotIngredient = ["mango", "pineapple", "strawberries", "banana"];
 // var ingredient = apple;
-var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=coffee";
+var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=pineapple";
 
 $.ajax({
-    url: queryURL,
-    method: "GET"
+  url: queryURL,
+  method: "GET"
 })
 
-.then(function (response) {
+  .then(function (response) {
     console.log(response)
     var results = response.drinks
     // console.log(results);
-       for (let d=0; d < results.length; d++) {
-    var drinkName = results[d].strDrink;
-console.log(drinkName);
 
-       }
+    var htmlString = '';
 
-      });
+    for (let d = 0; d < results.length; d++) {
+      var drinkName = results[d].strDrink;
+      var drinkImage = results[d].strDrinkThumb;
+
+
+      htmlString += `
+        <div class="drink-card">
+        <div class="drink-card__header">${drinkName}</div>
+        <div class="drink-card__body">
+          <a href="" class="drink-card__link">
+            <img
+              src="${drinkImage}"
+              alt="drink"
+              class="drink-card__image"
+            />
+          </a>
+          <div class="drink-card__details">Some info or something</div>
+        </div>
+      </div>
+        `;
+    }
+
+    $(".drinks").html(htmlString);
+
+
+
+
+
+    // var nameOfDrink = $("<h3>").text(drinkName)
+    // $(".drink-card__header").append(nameOfDrink);
+
+    // var image = $("<img>");
+    // image.attr("src", results[d].strDrinkThumb);
+
+    // $(".drink-image").append(image);
+  });
 
 
 
 // ********************************************O N - C L I C K _ _ F U N C T I O N S
 
-$('#userSubmit').on('click', function() {});
-$('#geoSubmit').on('click', function() {
+$('#userSubmit').on('click', function () { });
+$('#geoSubmit').on('click', function () {
   getLocation();
 });
-$('#chuck').on('click', function() {});
+$('#chuck').on('click', function () { });
 
 

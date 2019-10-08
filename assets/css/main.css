@@ -18,6 +18,11 @@ button:hover {
   justify-content: space-between;
 }
 
-.drink {
-  flex: 0 0 300px;
+.drink-card {
+  flex: 0 0 200px;
+}
+
+img {
+  width: 100%;
+
 }
