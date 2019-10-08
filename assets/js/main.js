@@ -60,3 +60,25 @@ $('#geoSubmit').on('click', function() {
   getLocation();
 });
 $('#chuck').on('click', function() {});
+
+
+
+
+// var mildIngredient = ["grape", "lime", "lemon", "orange"];
+// var coldIngredient = ["cinnamon", "cider", "coffee", "vanilla"];
+// var hotIngredient = ["mango", "pineapple", "strawberries", "banana"];
+// var ingredient = apple;
+var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=coffee";
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+})
+
+.then(function (response) {
+    console.log(response)
+    var results = response.drinks
+    // console.log(results);
+       for (let d=0; d < results.length; d++) {
+    var drinkName = results[d].strDrink;
+console.log(drinkName);
