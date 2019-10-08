@@ -1,6 +1,18 @@
+//***********************************V A R I A B L E S***************************************************************** */
+
+
+
 var latitude;
 var longitude;
 
+
+
+//********************************************E N D _ _ _ O F _ _ _ V A R I A B L E S********************************** */
+
+
+
+
+// ************************************G E O L O C A T I O N _ _ _ C O D E *******************************************************
 if ('geolocation' in navigator) {
   navigator.geolocation.getCurrentPosition(position => {
     console.log(position);
@@ -19,6 +31,17 @@ if ('geolocation' in navigator) {
   /* geolocation IS NOT available */
   // render the city/state input
 }
+
+
+// **************************************E N D _ _ _ O F _ _ G E O L O C A T I O N _ _ C O D E*****************************************
+
+
+
+
+
+
+//*********************************M A P Q U E S T _ _ A P I _ _ C O D E ************************************************** */
+
 $.ajax(
   'https://open.mapquestapi.com/geocoding/v1/address?key=hCje36DnsPrbL6oI4rXEVFDlZDB6HxPL&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500'
 ).then(function(data) {
@@ -53,15 +76,9 @@ function showPosition(position) {
 }
 getLocation();
 
-// This section is for "onclick" functions.**************
-
-$('#userSubmit').on('click', function() {});
-$('#geoSubmit').on('click', function() {
-  getLocation();
-});
-$('#chuck').on('click', function() {});
 
 
+// *******************************************D R I N K _ _ A P I _ _ C O D E ****************************************************
 
 
 // var mildIngredient = ["grape", "lime", "lemon", "orange"];
@@ -82,3 +99,19 @@ $.ajax({
        for (let d=0; d < results.length; d++) {
     var drinkName = results[d].strDrink;
 console.log(drinkName);
+
+       }
+
+      });
+
+
+
+// ********************************************O N - C L I C K _ _ F U N C T I O N S
+
+$('#userSubmit').on('click', function() {});
+$('#geoSubmit').on('click', function() {
+  getLocation();
+});
+$('#chuck').on('click', function() {});
+
+
