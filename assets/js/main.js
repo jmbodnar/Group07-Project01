@@ -17,7 +17,7 @@ if ('geolocation' in navigator) {
   // example http://open.mapquestapi.com/geocoding/v1/address?key=KEY&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500
   $.ajax(
     'https://open.mapquestapi.com/geocoding/v1/address?key=hCje36DnsPrbL6oI4rXEVFDlZDB6HxPLhCje36DnsPrbL6oI4rXEVFDlZDB6HxP&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500'
-  ).then(function(data) {
+  ).then(function (data) {
     console.log(data);
   });
 
@@ -31,7 +31,7 @@ if ('geolocation' in navigator) {
 
 $.ajax(
   'https://open.mapquestapi.com/geocoding/v1/address?key=hCje36DnsPrbL6oI4rXEVFDlZDB6HxPL&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500'
-).then(function(data) {
+).then(function (data) {
   console.log('ajax', data.results[0].locations[0].latLng);
   let latLng = data.results[0].locations[0].latLng;
   latitude = latLng.lat;
@@ -70,12 +70,12 @@ getLocation();
 // var hotIngredient = ["mango", "pineapple", "strawberries", "banana"];
 // var ingredient = apple;
 var queryURL =
-  'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=pineapple';
+  'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=coffee';
 
 $.ajax({
   url: queryURL,
   method: 'GET'
-}).then(function(response) {
+}).then(function (response) {
   console.log(response);
   var results = response.drinks;
   // console.log(results);
@@ -85,6 +85,9 @@ $.ajax({
   for (let d = 0; d < results.length; d++) {
     var drinkName = results[d].strDrink;
     var drinkImage = results[d].strDrinkThumb;
+    var drinkID = results[d].idDrink;
+    var ingredientsURL = "https://www.thecocktaildb.com/drink.php?c=" + drinkID;
+
 
     htmlString += `
         <div class="drink-card">
@@ -97,7 +100,10 @@ $.ajax({
               class="drink-card__image"
             />
           </a>
-          <div class="drink-card__details">Some info or something</div>
+          <div>
+          <a href="${ingredientsURL}">How to Make</a>
+    
+          </div>
         </div>
       </div>
         `;
@@ -116,11 +122,11 @@ $.ajax({
 
 // ********************************************O N - C L I C K _ _ F U N C T I O N S
 
-$('#userSubmit').on('click', function() {});
-$('#geoSubmit').on('click', function() {
+$('#userSubmit').on('click', function () { });
+$('#geoSubmit').on('click', function () {
   getLocation();
 });
-$('#chuck').on('click', function() {});
+$('#chuck').on('click', function () { });
 
 // ===== Jon's Form Stuff ===== //
 
@@ -139,7 +145,7 @@ function getCityWeather(event) {
   $.ajax({
     url: queryString,
     method: 'GET'
-  }).then(function(response) {
+  }).then(function (response) {
     var c = response.main.temp;
     var f = Math.round((c - 273.15) * 1.8 + 32);
     console.log('Fahrenheit in', city, 'is', f);
