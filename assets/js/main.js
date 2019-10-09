@@ -93,15 +93,13 @@ $.ajax({
         <div class="drink-card">
         <div class="drink-card__header">${drinkName}</div>
         <div class="drink-card__body">
-          <a href="" class="drink-card__link">
             <img
               src="${drinkImage}"
               alt="drink"
               class="drink-card__image"
             />
-          </a>
           <div>
-          <a href="${ingredientsURL}">How to Make</a>
+          <a href="${ingredientsURL}" target="_blank">Drink Me</a>
     
           </div>
         </div>
@@ -149,8 +147,19 @@ function getCityWeather(event) {
     var c = response.main.temp;
     var f = Math.round((c - 273.15) * 1.8 + 32);
     console.log('Fahrenheit in', city, 'is', f);
+
+    updateLocationDetails(city, f);
     return f;
   });
+}
+
+function updateLocationDetails(city, temp) {
+  var cityName = document.querySelector('#city-name');
+  var currentTemp = document.querySelector('#current-temp');
+
+  cityName.textContent = city;
+  currentTemp.textContent = temp;
+
 }
 
 // ----- Listeners and Initializations ----- //
