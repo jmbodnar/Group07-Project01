@@ -99,7 +99,7 @@ $.ajax({
               class="drink-card__image"
             />
           <div>
-          <a href="${ingredientsURL}" target="_blank">Drink Me</a>
+          <a class="drink-card__link" href="${ingredientsURL}" target="_blank">Drink Me <i class="fa fa-external-link"></i></a>
     
           </div>
         </div>
