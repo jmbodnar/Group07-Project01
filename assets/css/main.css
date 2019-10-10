@@ -19,6 +19,10 @@ h1, h2, h3, h4, h5 {
   font-weight: lighter;
 }
 
+.drinks-heading {
+  text-transform: capitalize;
+}
+
 .drink-card {
   flex: 0 0 175px;
   border: 1px solid hsla(0, 0%, 0%, 0.2);

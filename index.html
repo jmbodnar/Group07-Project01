@@ -30,7 +30,7 @@
       <main>
         <div class="row">
           <div class="col-6">
-            <h2>Drinks for Your Location</h2>
+            <h2>Get Drinks For Your Location's Weather</h2>
             <p>
               Use your browser's
               <a
@@ -42,7 +42,7 @@
             <button id="location-button">Get Drinks for My Location</button>
           </div>
           <div class="col-6">
-            <h2>Seasonal Drinks by City</h2>
+            <h2>Get Seasonal Drinks For a City</h2>
             <form action="javascript:void(0)" id="location-form">
               <div class="input-group">
                 <label for="city">City</label>
@@ -58,17 +58,10 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-12">
-            <h2>Weather</h2>
-            <p>
-              It's currently <span id="current-temp">9000</span>&deg; in
-              <span id="city-name">Atlanta</span>
-            </p>
-          </div>
-        </div>
-
-        <h2>Seasonal Drinks</h2>
+        <h2 class="drinks-heading">
+          Drinks for <span id="current-temp">9000</span>&deg;
+          <span id="city-name">Atlanta</span> Weather
+        </h2>
         <div class="drinks"></div>
       </main>
     </div>
