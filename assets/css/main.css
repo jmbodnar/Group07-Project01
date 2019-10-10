@@ -4,8 +4,17 @@ body {
   background: whitesmoke;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Oswald';
+  font-weight: lighter;
+}
+
 button:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .drinks {
@@ -14,9 +23,10 @@ button:hover {
   justify-content: space-between;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: "Oswald";
-  font-weight: lighter;
+@media screen and (max-width: 750px) {
+  .drinks {
+    justify-content: center;
+  }
 }
 
 .drinks-heading {
@@ -34,7 +44,7 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
   align-items: center;
   box-shadow: 0px 1px 2px hsla(0, 0%, 0%, 0.2);
-  background:white;
+  background: white;
 }
 
 .drink-card__header {
@@ -42,7 +52,7 @@ h1, h2, h3, h4, h5 {
   line-height: 1;
   /* letter-spacing: -1px; */
   margin-bottom: 1rem;
-  font-family: "Oswald";
+  font-family: 'Oswald';
   font-weight: 300;
 }
 
@@ -61,7 +71,7 @@ h1, h2, h3, h4, h5 {
   border-radius: 3px;
   text-align: center;
   box-shadow: 0px 1px 2px hsla(0, 0%, 0%, 0.2);
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .drink-card__link:hover {
