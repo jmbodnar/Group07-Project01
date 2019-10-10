@@ -29,16 +29,16 @@ if ('geolocation' in navigator) {
 
 //*********************************M A P Q U E S T _ _ A P I _ _ C O D E ************************************************** */
 
-$.ajax(
-  'https://open.mapquestapi.com/geocoding/v1/address?key=hCje36DnsPrbL6oI4rXEVFDlZDB6HxPL&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500'
-).then(function(data) {
-  console.log('ajax', data.results[0].locations[0].latLng);
-  let latLng = data.results[0].locations[0].latLng;
-  latitude = latLng.lat;
-  longitude = latLng.lng;
+// $.ajax(
+//   'https://open.mapquestapi.com/geocoding/v1/address?key=hCje36DnsPrbL6oI4rXEVFDlZDB6HxPL&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500'
+// ).then(function(data) {
+//   console.log('ajax', data.results[0].locations[0].latLng);
+//   let latLng = data.results[0].locations[0].latLng;
+//   latitude = latLng.lat;
+//   longitude = latLng.lng;
 
-  $('body').append(`<h1>${latitude}</h1><h2>${longitude}</h2>`);
-});
+//   $('body').append(`<h1>${latitude}</h1><h2>${longitude}</h2>`);
+// });
 
 //   added w3 schools code
 var x = document.getElementById('lat');
@@ -69,7 +69,7 @@ getLocation();
 // var coldIngredient = ["cinnamon", "cider", "coffee", "vanilla"];
 // var hotIngredient = ["mango", "pineapple", "strawberries", "banana"];
 // var ingredient = apple;
-var queryURL =
+/* var queryURL =
   'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=coffee';
 
 $.ajax({
@@ -115,43 +115,35 @@ $.ajax({
   // image.attr("src", results[d].strDrinkThumb);
 
   // $(".drink-image").append(image);
-});
+}); */
 
 // ********************************************O N - C L I C K _ _ F U N C T I O N S
 
-$('#userSubmit').on('click', function() {});
-$('#geoSubmit').on('click', function() {
-  getLocation();
-});
-$('#chuck').on('click', function() {});
+// $('#userSubmit').on('click', function() {});
+// $('#geoSubmit').on('click', function() {
+//   getLocation();
+// });
+// $('#chuck').on('click', function() {});
 
 // ===== Jon's Form Stuff ===== //
 
+// ----- Variables ----- //
+
 // ----- Functions ----- //
 
-function getCityWeather(event) {
-  var city = event.target.city.value.trim().toLowerCase();
-
-  if (!city) {
-    alert('You need a city');
-    return;
-  }
-
-  var queryString = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9d43fd3ba9edb19355aa0760b84ba2f2`;
-
-  $.ajax({
-    url: queryString,
-    method: 'GET'
-  }).then(function(response) {
-    var c = response.main.temp;
-    var f = Math.round((c - 273.15) * 1.8 + 32);
-    console.log('Fahrenheit in', city, 'is', f);
-
-    updateLocationDetails(city, f);
-    return f;
-  });
+// Fetch, parse JSON data
+async function getJSON(url, settings) {
+  return await (await fetch(url, settings)).json();
 }
 
+// Convert celcius to fahrenheit
+function celToFah(c) {
+  var f = Math.round((c - 273.15) * 1.8 + 32);
+  // console.log(`${c} degrees celcisus is ${} degrees fahrenheit.`);
+  return f;
+}
+
+// Display city, temp
 function updateLocationDetails(city, temp) {
   var cityName = document.querySelector('#city-name');
   var currentTemp = document.querySelector('#current-temp');
@@ -160,6 +152,63 @@ function updateLocationDetails(city, temp) {
   currentTemp.textContent = temp;
 }
 
-// ----- Listeners and Initializations ----- //
+// Build, Display Cards
+function makeDrinkCards(results) {
+  var drinkCardsHTML = '';
 
-document.addEventListener('submit', getCityWeather, false);
+  results.drinks.forEach(drink => {
+    var drinkName = drink.strDrink;
+    var drinkImage = drink.strDrinkThumb;
+    var ingredientsURL = `https://www.thecocktaildb.com/drink.php?c=${drink.idDrink}`;
+
+    drinkCardsHTML += `
+    <div class="drink-card">
+    <div class="drink-card__header">${drinkName}</div>
+    <div class="drink-card__body">
+        <img
+          src="${drinkImage}"
+          alt="drink"
+          class="drink-card__image"
+        />
+      <div>
+      <a class="drink-card__link" href="${ingredientsURL}" target="_blank">Drink Me <i class="fa fa-external-link"></i></a>
+
+      </div>
+    </div>
+  </div>`;
+  });
+
+  document.querySelector('.drinks').innerHTML = drinkCardsHTML;
+}
+
+// Handle form submission...still needs to handle fetching and updating drink
+// cards appropriately
+function handleCityForm(event) {
+  var city = event.target.city.value.trim().toLowerCase();
+
+  if (!city) {
+    alert('You need a city');
+    return;
+  }
+
+  var weatherQuery = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9d43fd3ba9edb19355aa0760b84ba2f2`;
+
+  getJSON(weatherQuery).then(response => {
+    var c = response.main.temp;
+    var f = celToFah(c);
+    updateLocationDetails(city, f);
+  });
+
+  event.target.reset();
+}
+
+// ----- Inits & Listeners ----- //
+
+document.addEventListener('submit', handleCityForm, false);
+
+// Some testing stuff...
+var queryTest = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=milk';
+
+getJSON(queryTest).then(response => {
+  makeDrinkCards(response);
+});
