@@ -105,13 +105,16 @@ $(document).ready(function() {
     });
   }
 
-  function getNumberFact(stringToAppend) {
-    if (!stringToAppend) {
+  // Gets a number (or date) fact from numbersapi.com, based on temp or date
+  // On page load, get number fact for today's date--takes no parameters, date pulled automatically
+  // Otherwise, if numberString, gets number fact based on numberString
+  function getNumberFact(numberString) {
+    if (!numberString) {
       var month = new Date().getMonth() + 1;
       var day = new Date().getDate();
       var numbersApiURL = `http://numbersapi.com/${month}/${day}`;
     } else {
-      var numbersApiURL = `http://numbersapi.com/${stringToAppend}`;
+      var numbersApiURL = `http://numbersapi.com/${numberString}`;
     }
     $.ajax({
       url: numbersApiURL,
