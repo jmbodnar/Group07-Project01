@@ -137,7 +137,8 @@ $(document).ready(function() {
     // For form checking, if no data entered or if empty string, replace with dissmissable alert
     // Also, consider doing this for cases where city name entered doesn't exist or doens't result in information back from openweather api
     if (!city) {
-      alert("You need a city"); //TODO remove alert
+      // document.querySelector('#city').setAttribute('placeholder', 'You must enter a city!');
+      $('#city').attr('placeholder', 'You must enter a city');
       return;
     }
 
