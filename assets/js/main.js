@@ -121,12 +121,11 @@ $(document).ready(function() {
       method: "Get"
     }).then(function(response) {
       console.log(response);
-      $(".alert").remove();
-      var numberDiv = $("<div>");
+      $("#numberDiv").remove();
+      var numberDiv = $("<div id='numberDiv'>").text(response);
       numberDiv.addClass("alert alert-dark my-5");
 
       $(".drinks").after(numberDiv);
-      $(".alert").text(response);
     });
   }
 
