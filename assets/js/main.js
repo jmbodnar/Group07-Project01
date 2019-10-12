@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // -----FUNCTIONS----- //
 
   async function getJSON(url, settings) {
@@ -120,7 +120,7 @@ $(document).ready(function() {
     $.ajax({
       url: numbersApiURL,
       method: "Get"
-    }).then(function(response) {
+    }).then(function (response) {
       console.log(response);
       $("#numberDiv").remove();
       var numberDiv = $("<div id='numberDiv'>").text(response);
@@ -169,21 +169,6 @@ $(document).ready(function() {
     }
   }
 
-  // function getChuckStuff() {
-  //   var queryString = `https://api.chucknorris.io/jokes/random?category=food`;
-  //   $.ajax({
-  //     url: queryString,
-  //     method: "GET"
-  //   }).then(function(response) {
-  //     var saying = response.value;
-  //     var chuckDiv = $("<div>");
-  //     chuckDiv.addClass("alert alert-dark my-5");
-
-  //     $(".drinks").after(chuckDiv);
-  //     $(".alert").text(saying);
-  //     //  alert(saying);
-  //   });
-  // }
 
   // ----- Start Up and Event Listeners ----- //
   // document.addEventListener("submit", handleCityForm, false);
