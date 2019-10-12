@@ -139,18 +139,22 @@ $(document).ready(function () {
     // Also, consider doing this for cases where city name entered doesn't exist or doens't result in information back from openweather api
     if (!city) {
       // document.querySelector('#city').setAttribute('placeholder', 'You must enter a city!');
+      //changes placeholder attr to inform user of what to do if no data is initially entered when submit button is clicked
       $('#city').attr('placeholder', 'You must enter a city');
       return;
     }
 
+    // Openweather API is used and completes search using the current "value"  of city
+
     var weatherQuery = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9d43fd3ba9edb19355aa0760b84ba2f2`;
 
+    // Converts the temperature from response Object (from API) from Kelvin to Farenheit and returns Farenheit value
     getJSON(weatherQuery).then(response => {
       var k = response.main.temp;
       var f = kelToFah(k);
       updateLocationDetails(city, f);
 
-      getNumberFact(f);
+      getNumberFact(f);  //Uses the Farenheit temp as trigger for Number fact API Search
 
       var ingredient = getDrinkIngredient(f);
       var drinkURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`;
@@ -162,6 +166,9 @@ $(document).ready(function () {
 
     event.target.reset();
   }
+
+
+  // Function for User clicking for Geolocation option
 
   function handleLocationButton(event) {
     if (event.target.matches("#location-button")) {
@@ -177,5 +184,6 @@ $(document).ready(function () {
   // document.addEventListener("click", handleLocationButton, false);
   $(document).on("click", handleLocationButton);
 
+  //Pulls number fact to be displayed on every upload
   getNumberFact();
 });
