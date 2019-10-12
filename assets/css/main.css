@@ -1,7 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400&display=swap");
 
 body {
   background: whitesmoke;
+  background: linear-gradient(
+      0,
+      hsla(0, 0%, 100%, 0.85),
+      hsla(0, 0%, 100%, 0.85)
+    ),
+    url("https://source.unsplash.com/random/?drinks") no-repeat scroll center
+      center / cover;
 }
 
 h1,
@@ -9,7 +16,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Oswald';
+  font-family: "Oswald";
   font-weight: lighter;
 }
 
@@ -52,7 +59,7 @@ button:hover {
   line-height: 1;
   /* letter-spacing: -1px; */
   margin-bottom: 1rem;
-  font-family: 'Oswald';
+  font-family: "Oswald";
   font-weight: 300;
 }
 
