@@ -30,6 +30,7 @@ Our app takes a user's location input. This information is used to pull weather 
 * [TheCocktailDB](https://www.thecocktaildb.com/)
 * [GeoLocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
 * [Wing CSS Framework](https://kbrsh.github.io/wing/)
+* [NumbersAPI](http://numbersapi.com/#42)
 
 ## Tasks
 
