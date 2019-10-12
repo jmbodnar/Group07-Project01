@@ -41,7 +41,11 @@ if ('geolocation' in navigator) {
 
 
 //*********************************M A P Q U E S T _ _ A P I _ _ C O D E ************************************************** */
+// On click function for mylocation button added here
 
+$("#location-button").on("click", function() {
+  
+   
 $.ajax(
   'https://open.mapquestapi.com/geocoding/v1/address?key=hCje36DnsPrbL6oI4rXEVFDlZDB6HxPL&location=1600+Pennsylvania+Ave+NW,Washington,DC,20500'
 ).then(function (data) {
@@ -74,7 +78,10 @@ function showPosition(position) {
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
 }
+
 getLocation();
+getCity();
+});
 
 
 
@@ -146,4 +153,33 @@ $('#geoSubmit').on('click', function () {
 });
 $('#chuck').on('click', function () { });
 
+
+
+
+
+
+
+
+
+
+
+
+
+// ajax call to get city info
+
+ function getCity(){
+  var cityURL = "https://api.openweathermap.org/data/2.5/weather?q=lat="+ latitude+ "&lon="+ longitude+"&appid=9d43fd3ba9edb19355aa0760b84ba2f2";
+// 
+// var cityURL = "https://api.openweathermap.org/data/2.5/weather?&appid=9d43fd3ba9edb19355aa0760b84ba2f2";
+
+$.ajax({
+  url: cityURL,
+  method: "GET"
+})
+
+  .then(function (response){
+  console.log("city: " + response.name);
+
+});
+}
 
