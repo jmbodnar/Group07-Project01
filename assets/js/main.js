@@ -91,6 +91,7 @@ $(document).ready(function() {
         var city = response.name;
         var k = response.main.temp;
         var f = kelToFah(k);
+        getNumberFact(f);
 
         updateLocationDetails(city, f);
 
@@ -104,9 +105,32 @@ $(document).ready(function() {
     });
   }
 
+  function getNumberFact(stringToAppend) {
+    if (!stringToAppend) {
+      var month = new Date().getMonth() + 1;
+      var day = new Date().getDate();
+      var numbersApiURL = `http://numbersapi.com/${month}/${day}`;
+    } else {
+      var numbersApiURL = `http://numbersapi.com/${stringToAppend}`;
+    }
+    $.ajax({
+      url: numbersApiURL,
+      method: "Get"
+    }).then(function(response) {
+      console.log(response);
+      $(".alert").remove();
+      var numberDiv = $("<div>");
+      numberDiv.addClass("alert alert-dark my-5");
+
+      $(".drinks").after(numberDiv);
+      $(".alert").text(response);
+    });
+  }
+
   // Process form submssion //
   function handleCityForm(event) {
     var city = event.target.city.value.trim().toLowerCase();
+    event.preventDefault();
 
     // For form checking, if no data entered or if empty string, replace with dissmissable alert
     // Also, consider doing this for cases where city name entered doesn't exist or doens't result in information back from openweather api
@@ -121,6 +145,8 @@ $(document).ready(function() {
       var k = response.main.temp;
       var f = kelToFah(k);
       updateLocationDetails(city, f);
+
+      getNumberFact(f);
 
       var ingredient = getDrinkIngredient(f);
       var drinkURL = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`;
@@ -139,10 +165,28 @@ $(document).ready(function() {
     }
   }
 
-  // Event Listeners //
+  // function getChuckStuff() {
+  //   var queryString = `https://api.chucknorris.io/jokes/random?category=food`;
+  //   $.ajax({
+  //     url: queryString,
+  //     method: "GET"
+  //   }).then(function(response) {
+  //     var saying = response.value;
+  //     var chuckDiv = $("<div>");
+  //     chuckDiv.addClass("alert alert-dark my-5");
+
+  //     $(".drinks").after(chuckDiv);
+  //     $(".alert").text(saying);
+  //     //  alert(saying);
+  //   });
+  // }
+
+  // ----- Start Up and Event Listeners ----- //
   // document.addEventListener("submit", handleCityForm, false);
   $(document).on("submit", handleCityForm);
 
   // document.addEventListener("click", handleLocationButton, false);
   $(document).on("click", handleLocationButton);
+
+  getNumberFact();
 });
