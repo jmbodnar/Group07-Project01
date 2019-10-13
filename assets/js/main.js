@@ -12,7 +12,7 @@ $(document).ready(function() {
   function getDrinkIngredient(temp) {
     var coldIngredients = ['cinnamon', 'cider', 'coffee', 'vanilla'];
     var mildIngredients = ['grape', 'line', 'lemon', 'orange'];
-    var hotIngredients = ['mango', 'pineapple', 'strawberries', 'banana'];
+    var hotIngredients = ['mango', 'pineapple', 'strawberries', 'banana', 'cream', 'water', 'ice'];
 
     if (temp <= 40) {
       return coldIngredients[
