@@ -26,11 +26,12 @@ Our app takes a user's location input. This information is used to pull weather 
 
 ## APIs & Other Technologies
 
-* [OpenWeather](https://openweathermap.org/)
-* [TheCocktailDB](https://www.thecocktaildb.com/)
-* [GeoLocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
-* [Wing CSS Framework](https://kbrsh.github.io/wing/)
-* [NumbersAPI](http://numbersapi.com/#42)
+* [OpenWeather for weather details](https://openweathermap.org/)
+* [TheCocktailDB for drinks and links to drinks recipes](https://www.thecocktaildb.com/)
+* [GeoLocation API to get location information for user](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
+* [Wing CSS Framework as an alternative css framework](https://kbrsh.github.io/wing/)
+* [NumbersAPI for number and date facts](http://numbersapi.com/#42)
+* [Unsplash's Random Image API for background image](https://source.unsplash.com/)
 
 ## Tasks
 
