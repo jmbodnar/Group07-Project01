@@ -11,7 +11,7 @@ $(document).ready(function() {
   // Use temperature to pull random drink ingredient based on temperature //
   function getDrinkIngredient(temp) {
     var coldIngredients = ['cinnamon', 'cider', 'coffee', 'vanilla'];
-    var mildIngredients = ['grape', 'line', 'lemon', 'orange'];
+    var mildIngredients = ['grape', 'line', 'lemon', 'orange', 'vermouth', 'grenadine', 'ginger'];
     var hotIngredients = ['mango', 'pineapple', 'strawberries', 'banana', 'cream', 'water', 'ice'];
 
     if (temp <= 40) {
