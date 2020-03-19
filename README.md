@@ -33,6 +33,12 @@ Our app takes a user's location input. This information is used to pull weather 
 * [NumbersAPI for number and date facts](http://numbersapi.com/#42)
 * [Unsplash's Random Image API for background image](https://source.unsplash.com/)
 
+
+## Screenshots
+<img src="assets/images/homepage.png" style="width='100%'">
+<img src="assets/images/warm_temp.png" style="width='100%'">
+<img srsc="assets/images/cold_temp.png" style="width='100%'">
+
 ## Tasks
 
 * Develop project proposal
